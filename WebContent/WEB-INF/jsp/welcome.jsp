@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-${message}
+<h1>${message}</h1>
+<a href="createForm.html">New User</a>
+
 </body>
 </html>

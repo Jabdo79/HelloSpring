@@ -8,13 +8,13 @@ import javax.validation.constraints.Size;
 
 public class User {
 	
-	@NotNull
-	@Size(min=1, max=20)
-	@Pattern(regexp="[a-zA-Z]+")
+	@NotNull(message = "Please enter a name.")
+	@Size(min=1, max=20, message = "Max characters for your name is 20.")
+	@Pattern(regexp="[a-zA-Z]+", message="Your name contains invalid characters.")
 	private String name;
 	
-	@Min(1)
-	@Max(150)
+	@Min(value=1, message = "Please enter an age 1-150.")
+	@Max(value=150, message = "Please enter an age 1-150.")
 	private int age;
 	
 	public String getName() {

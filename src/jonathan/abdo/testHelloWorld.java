@@ -17,11 +17,11 @@ public class testHelloWorld {
 
 	@RequestMapping("/createForm")
 	public ModelAndView userForm() {
-		return new ModelAndView("userForm", "command", new User());
+		return new ModelAndView("userForm", "User", new User());
 	}
 
 	@RequestMapping(value = "/submitForm", method = RequestMethod.POST)
-	public String showUser(@ModelAttribute("SpringWeb") User user, ModelMap model) {
+	public String showUser(@ModelAttribute("User") User user, ModelMap model) {
 		model.addAttribute("name", user.getName());
 		model.addAttribute("age", user.getAge());
 		return "userInfo";

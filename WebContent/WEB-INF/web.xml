@@ -17,4 +17,12 @@
  <url-pattern>*.html</url-pattern>
  </servlet-mapping>
 
+ <!-- part of form validation, makes it so empty strings are considered NULL -->
+ <context-param>
+    <param-name>
+        javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL
+    </param-name>
+    <param-value>true</param-value>
+</context-param>
+
 </web-app>

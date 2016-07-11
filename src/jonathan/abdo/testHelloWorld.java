@@ -1,7 +1,10 @@
 package jonathan.abdo;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,7 +24,13 @@ public class testHelloWorld {
 	}
 
 	@RequestMapping(value = "/submitForm", method = RequestMethod.POST)
-	public String showUser(@ModelAttribute("User") User user, ModelMap model) {
+	public String showUser(@Valid@ModelAttribute("User") User user, BindingResult bindingResult, ModelMap model) {
+		
+		if (bindingResult.hasErrors()) {
+            //return the user to the form if there are errors
+			return "userForm";
+        }
+		
 		model.addAttribute("name", user.getName());
 		model.addAttribute("age", user.getAge());
 		return "userInfo";
